@@ -14,8 +14,7 @@ namespace BaristaApi
             //latte is type of Latte
              */
 
-            Console.WriteLine("Me");
-            Console.WriteLine("Another Test");
+           
 
 
         }
