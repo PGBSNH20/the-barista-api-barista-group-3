@@ -14,6 +14,9 @@ namespace BaristaApi
             //latte is type of Latte
              */
             Console.WriteLine("All comments have been deleted  ");
+            Console.WriteLine("All comments have been deleted  ");
+            Console.WriteLine("All comments have been deleted  ");
+
         }
     }
 }
