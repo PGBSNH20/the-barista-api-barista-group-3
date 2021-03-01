@@ -13,12 +13,7 @@ namespace BaristaApi
             Latte latte = new Espresso().AddWater(20).AddBeans(b => b.AmountInG = 7 && b.Sort = CoffeSorts.Robusta).AddMilk().ToBravage();
             //latte is type of Latte
              */
-
-           
-
-            //check if it was posted!
-            //!!!!!!!!!!!!!!!!!!!!!!!
-            //11111111111111111111111
+            Console.WriteLine("All comments have been deleted  ");
         }
     }
 }
