@@ -39,7 +39,7 @@ class Bean: Ingredient
 }
 
 
-class Mike : Ingredient
+class Milke : Ingredient
 {
     public bool Eko { get; set; }
     public bool Normal { get; set; }
@@ -47,8 +47,15 @@ class Mike : Ingredient
 
 class Water:Ingredient
 {
+    public int Weight { get; set; }
 
 
+}
+
+class Flavouring : Ingredient
+{
+    public bool ChocolateSyrup { get; set; }
+    public bool MilkFoam { get; set; }
 
 }
 
