@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaristaApi", "BaristaApi.csproj", "{3AA4175A-8C50-409B-AC26-A88ADE5E6386}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Barista", "..\..\..\..\source\repos\the-barista-grupp-1\Barista\Barista.csproj", "{06B4AA85-B80B-40FE-920B-3A9345270371}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{3AA4175A-8C50-409B-AC26-A88ADE5E6386}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AA4175A-8C50-409B-AC26-A88ADE5E6386}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AA4175A-8C50-409B-AC26-A88ADE5E6386}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06B4AA85-B80B-40FE-920B-3A9345270371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06B4AA85-B80B-40FE-920B-3A9345270371}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06B4AA85-B80B-40FE-920B-3A9345270371}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06B4AA85-B80B-40FE-920B-3A9345270371}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
