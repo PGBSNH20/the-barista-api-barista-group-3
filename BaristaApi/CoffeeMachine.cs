@@ -35,25 +35,19 @@ namespace BaristaApi
 
         public IMake AddWater(int amount)
         {
-
-           
             Ingredients.Add(Additive.Water);
             return this;
         }
  
         public IMake AddMilk( int amount)
-        {
-            
+        {           
                 Ingredients.Add(Additive.Milk);
-                  return this;
+                 return this;
         }
         public IMake AddChocolate(int amount)
-        {
-            
+        {           
                 Ingredients.Add(Additive.ChocolateSyrup);
-                return this;
-           
-           
+                return this;          
         }
         
         public Coffee GetCoffee()
