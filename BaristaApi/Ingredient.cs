@@ -5,63 +5,54 @@ using System.Text;
 
 namespace BaristaApi
 {
+
+    public enum CoffeeSort
+    {
+        Robusta,
+        Arabica,
+        Liberica,
+        Excelsa
+    }
+    public enum Additive
+    {
+        Espresso,
+        Milk,
+        MilkFoam,
+        ChocolateSyrup,
+        Water,
+    }
+    public enum CoffeeType
+    {
+        Americano,
+        Esspresso,
+        Latte,
+        HotChocolate        
+    }
     public class Ingredient
     {
-        public string Name { get; set; }
-        //public string Type { get; set; }
-        private int _Amount { get; set; }
+        private int _AmmountInG { get; set; }
+        public CoffeeSort Sort { get; set; }
 
-
-        public int Amount
+        public int AmmountInG
         {
-            get { return _Amount; }
+            get { return _AmmountInG; }
             set
             {
-                if (Amount <= 30)
+                if (AmmountInG <= 30)
                 {
-                    _Amount = value;
+                    _AmmountInG = value;
                 }
                 else
-                {
-                   
-                    _Amount = 0;
+                {                  
                     throw new ArgumentException("The amount has to be less then or equal to : 30 g");
                 }
             }
         }
 
     }
-
-
     public class Bean : Ingredient
     {
-
-        public bool Coffee { get; set; }
-        public bool Chocolate { get; set; }
-
-
-
-    }
-
-
-    public class Milke : Ingredient
-    {
-        public bool LactosFree { get; set; }
-        public bool Normal { get; set; }
-    }
-
-    public class Water : Ingredient
-    {
-        public int Volume { get; set; }
-
-
-    }
-
-    public class Flavouring : Ingredient
-    {
-        public bool ChocolateSyrup { get; set; }
-        public bool MilkFoam { get; set; }
-
+        
     }
 
 
