@@ -8,7 +8,7 @@ namespace BaristaApi
     public class Ingredient
     {
         public string Name { get; set; }
-        public string Type { get; set; }
+        //public string Type { get; set; }
         private int _Amount { get; set; }
 
 
@@ -23,6 +23,8 @@ namespace BaristaApi
                 }
                 else
                 {
+                   
+                    _Amount = 0;
                     throw new ArgumentException("The amount has to be less then or equal to : 30 g");
                 }
             }
@@ -34,8 +36,8 @@ namespace BaristaApi
     public class Bean : Ingredient
     {
 
-        public string RoastedType { get; set; }
-        public string Country { get; set; }
+        public bool Coffee { get; set; }
+        public bool Chocolate { get; set; }
 
 
 
@@ -44,13 +46,13 @@ namespace BaristaApi
 
     public class Milke : Ingredient
     {
-        public bool Eko { get; set; }
+        public bool LactosFree { get; set; }
         public bool Normal { get; set; }
     }
 
     public class Water : Ingredient
     {
-        public int Weight { get; set; }
+        public int Volume { get; set; }
 
 
     }

@@ -11,10 +11,10 @@ namespace BaristaApi
         static void Main(string[] args)
         {
             Coffee a = new CoffeeMachine()
-                   .AddBean((new Bean { Name = "American",Type= "Medium", Country = "USA", RoastedType = "Medium", Amount=20}), 50)
-                   .AddWater((new Water { Name = "Water ", Type = "normal", Weight = 4 }), 5)
-                   .AddMilk((new Milke { Name = "Arla", Normal = true, Eko = false }), 8)
-                   .AddFlavouring((new Flavouring { Name = "Choco ", Type = "Dark ", ChocolateSyrup = true, MilkFoam = true }), 6).GetCoffee();
+                   .AddBean((new Bean { Name = "Americano"}), 20)
+                   .AddWater((new Water { Volume = 4 }), 5)
+                   .AddMilk((new Milke { Normal = true}), 8)
+                   .AddFlavouring((new Flavouring {  ChocolateSyrup = true, MilkFoam = true }), 6).GetCoffee();
 
 
 
