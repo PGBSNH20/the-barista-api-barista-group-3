@@ -2,61 +2,65 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-class Ingredient
+
+namespace BaristaApi
 {
-    public string Name { get; set; }
-    public string Type { get; set; }
-    private int _Amount { get; set; }
-
-
-    public int Amount
+    public class Ingredient
     {
-        get { return _Amount; }
-        set
+        public string Name { get; set; }
+        public string Type { get; set; }
+        private int _Amount { get; set; }
+
+
+        public int Amount
         {
-            if (Amount<=30)
+            get { return _Amount; }
+            set
             {
-                _Amount = value;
-            }
-            else
-            {
-                throw new ArgumentException("The amount has to be less then or equal to : 30 g");
+                if (Amount <= 30)
+                {
+                    _Amount = value;
+                }
+                else
+                {
+                    throw new ArgumentException("The amount has to be less then or equal to : 30 g");
+                }
             }
         }
+
     }
 
+
+    public class Bean : Ingredient
+    {
+
+        public string RoastedType { get; set; }
+        public string Country { get; set; }
+
+
+
+    }
+
+
+    public class Milke : Ingredient
+    {
+        public bool Eko { get; set; }
+        public bool Normal { get; set; }
+    }
+
+    public class Water : Ingredient
+    {
+        public int Weight { get; set; }
+
+
+    }
+
+    public class Flavouring : Ingredient
+    {
+        public bool ChocolateSyrup { get; set; }
+        public bool MilkFoam { get; set; }
+
+    }
+
+
 }
-
-
-class Bean: Ingredient
-{
-    
-    public string RoastedType { get; set; }
-    public string Country { get; set; }
-
-
-
-}
-
-
-class Milke : Ingredient
-{
-    public bool Eko { get; set; }
-    public bool Normal { get; set; }
-}
-
-class Water:Ingredient
-{
-    public int Weight { get; set; }
-
-
-}
-
-class Flavouring : Ingredient
-{
-    public bool ChocolateSyrup { get; set; }
-    public bool MilkFoam { get; set; }
-
-}
-
-

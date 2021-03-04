@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BaristaApi
 {
-    class CoffeeMachine:IStart,IWater,IAdd
+    public  class CoffeeMachine:IStart,IWater,IAdd
     {
        
 
-        private List<Ingredient> Ingredients = new List<Ingredient>();
+        private readonly List<Ingredient> Ingredients = new List<Ingredient>();
 
         public IWater AddBean(Bean bean, int amount)
         {
@@ -49,15 +49,15 @@ namespace BaristaApi
 
     }
 
-    interface IStart
+   public interface IStart
     {
         IWater AddBean(Bean bean,int amount);
     }
-    interface IWater
+    public interface IWater
     {
         IAdd AddWater(Water water,int amount);
     }
-    interface IAdd
+    public interface IAdd
     {
         IAdd AddFlavouring(Flavouring flavouring,int amount);
         IAdd AddMilk(Milke milk,int amount);
@@ -65,7 +65,7 @@ namespace BaristaApi
         Coffee GetCoffee();
     }
 
-    class Coffee:CoffeeMachine
+    public class Coffee
     {
         public List<Ingredient> Ingredients { get; set; }
             
