@@ -15,10 +15,10 @@ namespace BaristaApi
     }
     public enum Additive
     {
-        Espresso,
+        Esspresso,
         Milk,
         MilkFoam,
-        ChocolateSyrup,
+        Chocolate,
         Water,
     }
     public enum CoffeeType
@@ -26,7 +26,9 @@ namespace BaristaApi
         Americano,
         Esspresso,
         Latte,        
-        Mocha
+        Mocha,
+        Non
+        
     }
     public enum CoffeeSize
     {

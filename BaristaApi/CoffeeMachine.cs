@@ -56,7 +56,7 @@ namespace BaristaApi
             Bean = bean;
             sort = bean.Sort;
             Sort.Add(sort);
-            CoffeeIngredients.Add(Additive.Espresso);
+            CoffeeIngredients.Add(Additive.Esspresso);
             return this;
         }
 
@@ -88,7 +88,7 @@ namespace BaristaApi
         }
         public IMake AddChocolate(int amount)
         {           
-                CoffeeIngredients.Add(Additive.ChocolateSyrup);
+                CoffeeIngredients.Add(Additive.Chocolate);
                 return this;          
         }
 
@@ -127,24 +127,33 @@ namespace BaristaApi
         }
 
         public CoffeeType CaffeeType()
-        {            
-                if (Ingredients.Contains("Esspresso") && Ingredients.Contains("Water") && Ingredients.Count<=4)
-                {
-                    return CoffeeType.Esspresso;
-                }               
-                else if (Ingredients.Contains("Esspresso") && Ingredients.Contains("MilkFoam") && Ingredients.Contains("Milk"))
-                {
-                    return CoffeeType.Latte;
-                }
-                else if (Ingredients.Contains("Esspresso") && Ingredients.Contains("Water") && Ingredients.Contains("Milk"))
-                {
-                    return CoffeeType.Americano;
-                }
-                else
-                {
+        {
+            if (Ingredients.Contains("Esspresso") && Ingredients.Contains("Water")&&Ingredients.Count<=4)
+            {
+                return CoffeeType.Esspresso;
+            }
+            else if ((Ingredients.Contains("Esspresso") && Ingredients.Contains("MilkFoam") && Ingredients.Contains("Milk") && Ingredients.Count <= 5))
+            {
+                return CoffeeType.Latte;
+            }
+            
+            else if ((Ingredients.Contains("Esspresso") && Ingredients.Contains("Water") && Ingredients.Contains("Milk") && Ingredients.Count <= 5))
+            {
+                return CoffeeType.Americano;
+            }
+            else if ((Ingredients.Contains("Esspresso") && Ingredients.Contains("Chocolate") && Ingredients.Contains("Milk") && Ingredients.Count <= 5))
+            {
                 return CoffeeType.Mocha;
-                }
-                
+            }
+            else 
+            {
+                return CoffeeType.Non;
+            }
+
+
+
+
+
         }
 
         public void PrintCaffee()
