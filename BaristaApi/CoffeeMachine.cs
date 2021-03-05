@@ -8,11 +8,14 @@ namespace BaristaApi
 {
     public interface IMake
     {
+        IMake CaffeeSize(int number);
         IMake AddBean(Bean bean);
-        IMake AddWater(int amount);
+
+        IMake AddWater(int amount,int temp=90);
         IMake AddMilk(int amount);
         IMake AddChocolate(int amount);      
-        Coffee GetCoffee();
+        Coffee GetCoffeeIngredients();
+        
 
     }
 
@@ -20,60 +23,114 @@ namespace BaristaApi
     {
 
         public Bean Bean { get; set; }
-        public Ingredient Water { get; set; }
-        public CoffeeSort Sort { get; set; }
+        public Water Water { get; set; }
+        public CoffeeSort sort { get; set; }
 
-        private readonly List<Additive> Ingredients = new List<Additive>();
+        private readonly List<Additive> CoffeeIngredients = new List<Additive>();
+        private readonly List<CoffeeSort> Sort = new List<CoffeeSort>();
+        private readonly List<CoffeeSize> Size = new List<CoffeeSize>();
 
+        public List<string> AllIngredients = new List<string>();
+
+
+
+        public IMake CaffeeSize(int number)
+        {
+            if (number==1)
+            {
+                Size.Add(CoffeeSize.Small);
+                    
+            }
+            else if (number==2)
+            {
+                Size.Add(CoffeeSize.Medium);
+                    
+            }
+            else if (number == 3)
+            {
+                Size.Add(CoffeeSize.Larg);
+            }
+            return this;
+        }
         public IMake AddBean(Bean bean)
         {
             Bean = bean;
-            Sort = bean.Sort;
-            Ingredients.Add(Additive.Espresso);
+            sort = bean.Sort;
+            Sort.Add(sort);
+            CoffeeIngredients.Add(Additive.Espresso);
             return this;
         }
 
-        public IMake AddWater(int amount)
+        public IMake AddWater(int amount, int temp)
         {
-            Ingredients.Add(Additive.Water);
-            return this;
+            
+            
+            if (temp >=90)
+            {
+                CoffeeIngredients.Add(Additive.Water);
+                return this;
+            }
+            else
+            {
+                throw new ArgumentException("Water is not warm enough");
+            }
+           
         }
  
         public IMake AddMilk( int amount)
         {           
-                Ingredients.Add(Additive.Milk);
+                CoffeeIngredients.Add(Additive.Milk);
                  return this;
         }
         public IMake AddChocolate(int amount)
         {           
-                Ingredients.Add(Additive.ChocolateSyrup);
+                CoffeeIngredients.Add(Additive.ChocolateSyrup);
                 return this;          
         }
-        
-        public Coffee GetCoffee()
+
+        public Coffee GetCoffeeIngredients()
         {           
-            return new Coffee(Ingredients);
+            return new Coffee(GetAllInList().ToList());
+        }
+
+        public string[] GetAllInList()
+        {
+            for (int i = 0; i <= CoffeeIngredients.Count - 1; i++)
+            {
+                AllIngredients.Add(CoffeeIngredients[i].ToString());
+            }
+            for (int i = 0; i <= Sort.Count-1; i++)
+            {
+                AllIngredients.Add(Sort[i].ToString());
+            }
+            for (int i = 0; i <= Size.Count - 1; i++)
+            {
+                AllIngredients.Add(Size[i].ToString());
+            }
+            return AllIngredients.ToArray(); 
         }
     }
     
 
     public class Coffee
     {     
-        public List<Additive> Ingredients { get; set; }
+        public List<string> Ingredients { get; set; }
 
-        public Coffee(List<Additive> ingredients)
+        public Coffee(List<string> ingredients)
         {
             this.Ingredients = ingredients;
 
         }
 
-        public CoffeeType PrintCaffee()
-        {                      
-                if (Ingredients.Contains(Additive.Espresso) && Ingredients.Contains(Additive.Water)&& Ingredients.Count==2)
+        public CoffeeType CaffeeType()
+        {
+            
+
+                if (Ingredients.Contains("Espresso") && Ingredients.Contains("Water")&& Ingredients.Count==1)
                 {
                     return CoffeeType.Esspresso;
                 }
-                else if (Ingredients.Contains(Additive.ChocolateSyrup) && Ingredients.Contains(Additive.MilkFoam) && Ingredients.Contains(Additive.Milk) && Ingredients.Count == 3)
+                else if (Ingredients.Contains("ChocolateSyrup") && Ingredients.Contains("MilkFoam") && Ingredients.Contains("Milk") && Ingredients.Count == 2)
                 {
                     return CoffeeType.Americano;
                 }
@@ -83,11 +140,16 @@ namespace BaristaApi
                 }  
         }
 
-        public void Caffee()
+        public void PrintCaffee()
         {
-            CoffeeType a = PrintCaffee();
+            //CoffeeType a = CaffeeType();
 
-            Console.WriteLine(a);
+            foreach (var item in Ingredients)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine();
         }
     }
 

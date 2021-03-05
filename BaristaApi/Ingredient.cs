@@ -28,6 +28,15 @@ namespace BaristaApi
         Latte,
         HotChocolate        
     }
+    public enum CoffeeSize
+    {
+        Larg,
+        Medium,
+        Small,
+        
+    }
+
+
     public class Ingredient
     {
         private int _AmmountInG { get; set; }
@@ -52,7 +61,14 @@ namespace BaristaApi
     }
     public class Bean : Ingredient
     {
+       
+    }
+    public class Water : Ingredient
+    {
+        public int Temptemperatur { get; set; }
+
         
+
     }
 
 
