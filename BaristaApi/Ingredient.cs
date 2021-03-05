@@ -23,10 +23,10 @@ namespace BaristaApi
     }
     public enum CoffeeType
     {
-        Cappuccino,
+        Americano,
         Esspresso,
-        Latte,
-        HotChocolate        
+        Latte,        
+        Mocha
     }
     public enum CoffeeSize
     {

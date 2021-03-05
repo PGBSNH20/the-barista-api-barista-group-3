@@ -8,15 +8,15 @@ namespace BaristaApi
 {
     public interface IMake
     {
-        IMake CaffeeSize(int number);
+        IMake CoffeeSize(int number);
         IMake AddBean(Bean bean);
 
         IMake AddWater(int amount,int temp=90);
         IMake AddMilk(int amount);
-        IMake AddChocolate(int amount);      
-        Coffee GetCoffeeIngredients();
+        IMake AddMilkFoam(int amount);
         
-
+        IMake AddChocolate(int amount);      
+        Coffee GetCoffeeIngredients();      
     }
 
     public  class CoffeeMachine: IMake
@@ -33,21 +33,21 @@ namespace BaristaApi
 
 
 
-        public IMake CaffeeSize(int number)
+        public IMake CoffeeSize(int number)
         {
             if (number==1)
             {
-                Size.Add(CoffeeSize.Small);
+                Size.Add(BaristaApi.CoffeeSize.Small);
                     
             }
             else if (number==2)
             {
-                Size.Add(CoffeeSize.Medium);
+                Size.Add(BaristaApi.CoffeeSize.Medium);
                     
             }
             else if (number == 3)
             {
-                Size.Add(CoffeeSize.Larg);
+                Size.Add(BaristaApi.CoffeeSize.Larg);
             }
             return this;
         }
@@ -80,6 +80,11 @@ namespace BaristaApi
         {           
                 CoffeeIngredients.Add(Additive.Milk);
                  return this;
+        }
+        public IMake AddMilkFoam(int amount)
+        {
+            CoffeeIngredients.Add(Additive.MilkFoam);
+            return this;
         }
         public IMake AddChocolate(int amount)
         {           
@@ -123,18 +128,23 @@ namespace BaristaApi
 
         public CoffeeType CaffeeType()
         {            
-                if (Ingredients.Contains("Espresso") && Ingredients.Contains("Water")&& Ingredients.Count==4)
+                if (Ingredients.Contains("Esspresso") && Ingredients.Contains("Water") && Ingredients.Count<=4)
                 {
                     return CoffeeType.Esspresso;
-                }
-                else if (Ingredients.Contains("ChocolateSyrup") && Ingredients.Contains("MilkFoam") && Ingredients.Contains("Milk") && Ingredients.Count == 2)
-                {
-                    return CoffeeType.Cappuccino;
-                }
-                else 
+                }               
+                else if (Ingredients.Contains("Esspresso") && Ingredients.Contains("MilkFoam") && Ingredients.Contains("Milk"))
                 {
                     return CoffeeType.Latte;
-                }  
+                }
+                else if (Ingredients.Contains("Esspresso") && Ingredients.Contains("Water") && Ingredients.Contains("Milk"))
+                {
+                    return CoffeeType.Americano;
+                }
+                else
+                {
+                return CoffeeType.Mocha;
+                }
+                
         }
 
         public void PrintCaffee()
