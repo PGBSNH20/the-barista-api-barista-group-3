@@ -29,8 +29,7 @@ namespace BaristaApi
         private readonly List<Additive> CoffeeIngredients = new List<Additive>();
         private readonly List<CoffeeSort> Sort = new List<CoffeeSort>();
         private readonly List<CoffeeSize> Size = new List<CoffeeSize>();
-
-        public List<string> AllIngredients = new List<string>();
+        private readonly List<string> AllIngredients = new List<string>();
 
 
 
@@ -123,16 +122,14 @@ namespace BaristaApi
         }
 
         public CoffeeType CaffeeType()
-        {
-            
-
-                if (Ingredients.Contains("Espresso") && Ingredients.Contains("Water")&& Ingredients.Count==1)
+        {            
+                if (Ingredients.Contains("Espresso") && Ingredients.Contains("Water")&& Ingredients.Count==4)
                 {
                     return CoffeeType.Esspresso;
                 }
                 else if (Ingredients.Contains("ChocolateSyrup") && Ingredients.Contains("MilkFoam") && Ingredients.Contains("Milk") && Ingredients.Count == 2)
                 {
-                    return CoffeeType.Americano;
+                    return CoffeeType.Cappuccino;
                 }
                 else 
                 {
@@ -142,12 +139,14 @@ namespace BaristaApi
 
         public void PrintCaffee()
         {
-            //CoffeeType a = CaffeeType();
+            CoffeeType order = CaffeeType();
 
             foreach (var item in Ingredients)
             {
                 Console.WriteLine(item);
             }
+            Console.WriteLine("-----------------------------");
+            Console.WriteLine($"Your order is ready : {order} :)");
 
             Console.WriteLine();
         }

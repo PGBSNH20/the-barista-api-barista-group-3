@@ -23,7 +23,7 @@ namespace BaristaApi
     }
     public enum CoffeeType
     {
-        Americano,
+        Cappuccino,
         Esspresso,
         Latte,
         HotChocolate        
@@ -66,9 +66,6 @@ namespace BaristaApi
     public class Water : Ingredient
     {
         public int Temptemperatur { get; set; }
-
-        
-
     }
 
 
