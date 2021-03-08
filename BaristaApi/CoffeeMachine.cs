@@ -28,7 +28,7 @@ namespace BaristaApi
 
         private readonly List<Additive> CoffeeIngredients = new List<Additive>();
         private readonly List<CoffeeSort> Sort = new List<CoffeeSort>();
-        private readonly List<CoffeeSize> Size = new List<CoffeeSize>();
+        private readonly List<CupSize> Size = new List<CupSize>();
         private readonly List<string> AllIngredients = new List<string>();
 
 
@@ -37,17 +37,17 @@ namespace BaristaApi
         {
             if (number==1)
             {
-                Size.Add(BaristaApi.CoffeeSize.Small);
+                Size.Add(CupSize.Small);
                     
             }
             else if (number==2)
             {
-                Size.Add(BaristaApi.CoffeeSize.Medium);
+                Size.Add(CupSize.Medium);
                     
             }
             else if (number == 3)
             {
-                Size.Add(BaristaApi.CoffeeSize.Larg);
+                Size.Add(CupSize.Larg);
             }
             return this;
         }
@@ -147,7 +147,7 @@ namespace BaristaApi
             }
             else 
             {
-                return CoffeeType.Non;
+                return CoffeeType.Custom;
             }
 
 

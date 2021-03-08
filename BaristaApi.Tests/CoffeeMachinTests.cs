@@ -75,7 +75,7 @@ namespace BaristaApi.Tests
 
             var Type = espresso.CaffeeType().ToString();
 
-            Assert.AreEqual(Type, "Non");
+            Assert.AreEqual(Type, "Custom");
         }
     }
 }

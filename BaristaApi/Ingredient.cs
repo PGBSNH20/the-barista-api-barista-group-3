@@ -27,10 +27,10 @@ namespace BaristaApi
         Esspresso,
         Latte,        
         Mocha,
-        Non
+        Custom
         
     }
-    public enum CoffeeSize
+    public enum CupSize
     {
         Larg,
         Medium,
