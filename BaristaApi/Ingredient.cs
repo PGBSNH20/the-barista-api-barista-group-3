@@ -61,10 +61,7 @@ namespace BaristaApi
         }
 
     }
-    public class Bean : Ingredient
-    {
-       
-    }
+    
     public class Water : Ingredient
     {
         public int Temptemperatur { get; set; }

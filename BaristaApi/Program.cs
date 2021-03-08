@@ -10,7 +10,7 @@ namespace BaristaApi
     {
         static void Main(string[] args)
         {
-            Coffee a = new CoffeeMachine().CoffeeSize(1).AddBean(new Bean() { AmmountInG=4,Sort=CoffeeSort.Robusta}).GetCoffeeIngredients();
+            Coffee a = new CoffeeMachine().CoffeeSize(1).AddBean(new Ingredient() { AmmountInG=4,Sort=CoffeeSort.Robusta}).GetCoffeeIngredients();
 
             a.PrintCaffee();
 

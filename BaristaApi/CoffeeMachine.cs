@@ -9,7 +9,7 @@ namespace BaristaApi
     public interface IMake
     {
         IMake CoffeeSize(int number);
-        IMake AddBean(Bean bean);
+        IMake AddBean(Ingredient bean);
 
         IMake AddWater(int amount,int temp=90);
         IMake AddMilk(int amount);
@@ -22,7 +22,7 @@ namespace BaristaApi
     public  class CoffeeMachine: IMake
     {
 
-        public Bean Bean { get; set; }
+        public Ingredient Bean { get; set; }
         public Water Water { get; set; }
         public CoffeeSort sort { get; set; }
 
@@ -51,7 +51,7 @@ namespace BaristaApi
             }
             return this;
         }
-        public IMake AddBean(Bean bean)
+        public IMake AddBean(Ingredient bean)
         {
             Bean = bean;
             sort = bean.Sort;

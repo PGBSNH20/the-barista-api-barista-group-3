@@ -11,7 +11,7 @@ namespace BaristaApi.Tests
         public void AddingWater_AddingCoffee_ReturnsEsspresso()
         {
             var espresso = new CoffeeMachine().CoffeeSize(1)
-                .AddBean(new Bean() { AmmountInG = 5, Sort = CoffeeSort.Robusta })
+                .AddBean(new Ingredient() { AmmountInG = 5, Sort = CoffeeSort.Robusta })
                 .AddWater(5)
                 .GetCoffeeIngredients();
 
@@ -24,7 +24,7 @@ namespace BaristaApi.Tests
         public void AddingMilk_AddingEsspresso_AddingMilkFoam_ReturnsLatte()
         {
             var espresso = new CoffeeMachine().CoffeeSize(1)
-                .AddBean(new Bean() { AmmountInG = 5, Sort = CoffeeSort.Robusta })
+                .AddBean(new Ingredient() { AmmountInG = 5, Sort = CoffeeSort.Robusta })
                 .AddMilk(4)
                 .AddMilkFoam(5)
                 .GetCoffeeIngredients();
@@ -38,7 +38,7 @@ namespace BaristaApi.Tests
         public void AddingEsspresso_AddingWater_AddingMilk_ReturnsAmericano()
         {
             var espresso = new CoffeeMachine().CoffeeSize(1)
-                .AddBean(new Bean() { AmmountInG = 5, Sort = CoffeeSort.Robusta })
+                .AddBean(new Ingredient() { AmmountInG = 5, Sort = CoffeeSort.Robusta })
                 .AddWater(4)
                 .AddMilk(5)
                 .GetCoffeeIngredients();
@@ -52,7 +52,7 @@ namespace BaristaApi.Tests
         public void AddingEsspresso_AddingChocolate_AddingMilk_ReturnsMocha()
         {
             var espresso = new CoffeeMachine().CoffeeSize(1)
-                .AddBean(new Bean() { AmmountInG = 5, Sort = CoffeeSort.Robusta })
+                .AddBean(new Ingredient() { AmmountInG = 5, Sort = CoffeeSort.Robusta })
                 .AddChocolate(4)
                 .AddMilk(5)
                 .GetCoffeeIngredients();
@@ -66,7 +66,7 @@ namespace BaristaApi.Tests
         public void Adding_FromOutSide_OurList_ReturnsNon()
         {
             var espresso = new CoffeeMachine().CoffeeSize(1)
-                .AddBean(new Bean() { AmmountInG = 5, Sort = CoffeeSort.Robusta })
+                .AddBean(new Ingredient() { AmmountInG = 5, Sort = CoffeeSort.Robusta })
                 .AddChocolate(4)
                 .AddMilk(5)
                 .AddWater(5)
